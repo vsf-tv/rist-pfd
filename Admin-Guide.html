@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>PFD Administrator's Guide</title>
+</head>
+<body>
+<center>
+<h1>VSF Payload Format Descriptor Registry</h1>
+<p>
+<h2>Administrator's Guide</h2>
+</center>
+
+<h2>Purpose</h2>
+
+<p>This document describes the approval process for a new Payload
+  Format Descriptor entry, to be used with RIST Advanced Profile tunnels
+  compliant with VSF TR-06-3.</p>
+
+<p>The Payload Format Descriptor is a 32-bit field in the RIST
+  Advanced Profile packet header. It provides a hint to the higher
+  layers to the contents of the packet. This field is optional for
+  tunnel packets that have an inner IP/UDP header, but it is required
+  for the low-overhead Direct Payload format. This document assumes
+  familiarity with TR-06-3 section 5.2, and in particular section
+  5.2.7, which contains the rules for creating the Payload Format
+  Descriptor.</p> 
+
+<h2>The Payload Format Descriptor</h2>
+
+<p>The Payload Format Descriptor is a 32-bit field that references a
+  particular standard. It is generally divided into the following
+  three fields:</p>
+
+<ul>
+  <li>The <b>ID Type</b> field, which is a code that identifies the
+  standards body from which the format is specified.</li>
+  <li>The <b>ID Number</b> field, which identifies the number of the
+  individual standard or recommendation. For some standards bodies,
+  this field is split into sub-fields, a main document number and a
+  part.</li>
+  <li>The <b>ID Flavor</b> field, which is used to enumerate multiple
+  formats (if present) for the standard or recommendation.</li>
+</ul>
+
+<p>The general format of the 32-bit field can be found in Figure 6
+  from TR-06-3, reproduced below.</p>
+
+<center>
+<pre>
+0                   1                   2                   3 
+0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|ID TYPE|              ID NUMBER                |   ID FLAVOR   |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</pre>
+</center>
+
+<h2>Approval Process</h2>
+
+<p>The master registry is an Excel spreadsheet, which is a binary
+  file. Merging a new entry needs to be done manually. Therefore, new
+  submissions to the registry are done through <b>Issues</b>. The
+  submitter creates an issue asking for a new registration, and
+  including all the necessary fields. The registry administrators
+  review the issue, and, if approved, create a PR and update the
+  relevant files.</p>
+
+<p>There are two types of registration requests:</p>
+
+<ol>
+  <li>Registration requests for an existing <b>ID Type</b>.</li>
+  <li>Registration requests that require a new <b>ID Type</b> code for
+  a standards body not referenced in TR-06-3.</li>
+</ol>
+
+<p>These two request types are handled differently, as described below.</p>
+
+<h3>Registration Requests for an Existing ID Type</h3>
+
+<p>The submitter will use the Excel spreadsheet to compute the Payload
+  Format Descriptor, and will include all the from the new spreadsheet
+  row in the issue requesting registration. The registry
+  administrators will check the following:</p>
+
+<ol>
+  <li>Is this request already covered by an existing entry in the
+  table? For example, some video compression standards are issued
+  jointly by ISO/IEC and ITU. The standard is the same, but it gets a
+  different number from each organization.</li>
+  <li>Does the proposed standard define a data type or format that can
+  be carried over RIST tunnel packets?</li>
+  <li>If the proposed standard has multiple formats, the submissal
+  must clearly indicate which format it pertains to, and it must set
+  the <b>ID Flavor</b> field accordingly. More specifically, the
+  first format defined in the standard shall receive <b>ID
+  Flavor=0</b>, the second <b>ID Flavor=1</b>, and so on.</li>
+</ol>
+
+<p>If the submission passes these checks, it shall be approved, and
+  the administrators shall generate a PR to include it in the
+  spreadsheet. Once the spreadsheet is updated, the CSV and PDF
+  versions shall be re-generated and updated as well.</p>
+
+<h3>Registration Requests for a new ID Type</h3>
+
+<p>The values for the <b>ID Type</b> field are listed in TR-06-3 section
+  5.2.7:</p>
+
+<ol start="0">
+  <li>VSF</li>
+  <li>IETF RFC</li>
+  <li>SMPTE</li>
+  <li>IEEE</li>
+  <li>ISO/IEC</li>
+  <li>AES</li>
+  <li>ATSC</li>
+  <li>ITU</li>
+  <li>ETSI/DVB</li>
+  <li>EBU</li>
+  <li>Reserved</li>
+  <li>Reserved</li>
+  <li>Reserved</li>
+  <li>Reserved</li>
+  <li>Reserved</li>
+  <li>Vendor-Defined</li>
+</ol>
+
+<p>Registration of a new <b>ID Type</b> will need to be approved by
+  the RIST AG, since it requires a minor revision of TR-06-3. The
+  submitter will need to provide the following information in the
+  request:</p>
+
+<ul>
+  <li>Is there an existing standard that covers this packet format? If
+  the answer is yes, justify the need for a new registration.</li>
+  <li>Present an use case for new registration.</li>
+  <li>Propose the layout of the <b>ID Number</b> field in case the
+  standars under consideration have sub-part numbers.</li>
+  <li>TR-06-3 has an <b>ID Type</b> reserved for vendor-defined
+  codes. Explain why this option is unsuitable.</li>
+</ul>
+
+<p>If the RIST AG accepts the request, one of the <b>Reserved</b> fields
+  above will be allocated for the standards organization, and the Excel
+  spreadsheet will be modified to include this new value. This change
+  will be included in the next revision of TR-06-3.</p>
+
+</body>
+</html>

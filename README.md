@@ -38,5 +38,8 @@ administrators will evaluate your entry, and, if accepted, create a PR
 and merge it into the spreadsheet. The PDF and CSV versions will also
 be updated.
 
+Submitters are encouraged to review the Admin Guide in this repository
+to understand the review and approval process.
+
 If you have any questions, please contact the repository maintainers.
 
