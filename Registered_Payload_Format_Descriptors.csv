@@ -1,0 +1,35 @@
+Organization,ID Type,Document,Part/Sub-Part,ID Flavor,Descriptor (Dec),Descriptor (Hex),Description
+VSF,0,1,0,0,4096,00001000,TR-01: JPEG2000 using 7 TS packets as per ST-2022-2
+VSF,0,1,0,1,4097,00001001,TR-01: JPEG2000 using 7 TS packets as per ST-2022-2 Column FEC
+VSF,0,1,0,2,4098,00001002,TR-01: JPEG2000 using 7 TS packets as per ST-2022-2 Row FEC
+RFC,1,2250,,0,269011456,1008CA00,MPEG2 Transport Stream over RTP
+RFC,1,6184,,0,270018560,10182800,AVC elementary stream over RTP. Includes the RFC 6184 RTP header.
+RFC,1,6416,,0,270077952,10191000,MPEG4 audio (AAC) over RTP
+RFC,1,7231,,0,270286592,101C3F00,HTTP traffic on Advanced Profile Tunnel
+RFC,1,7540,,0,270365696,101D7400,HTTP2 Traffic on Advanced Profile Tunnel
+RFC,1,7587,,0,270377728,101DA300,Opus audio over RTP
+RFC,1,7741,,0,270417152,101E3D00,VP8 over  RTP 
+RFC,1,7742,,0,270417408,101E3E00,WebRTC ?
+RFC,1,7798,,0,270431744,101E7600,HEVC elementary stream over RTP. Includes the RFC 7798 RTP header.
+SMPTE,2,2022,1,0,603128064,23F30100,FEC Packets
+SMPTE,2,2022,2,0,603128320,23F30200,TS over RTP as per ST 2022-2
+SMPTE,2,2022,3,0,603128576,23F30300,Piewise linear VBR video
+SMPTE,2,2022,5,0,603129088,23F30500,FEC Packets
+SMPTE,2,2022,6,0,603129344,23F30600,Uncompressed Transport of Full SDI Raster over RTP (including audio and ancillary data)
+SMPTE,2,2022,8,0,603129856,23F30800,Uncompressed Transport of Full SDI Raster over RTP (including audio and ancillary data) with PTP
+SMPTE,2,2049,0,0,604012544,24008000,MXF OP1a streaming transport with RFC 6597 defining MXF KLV over RTP
+SMPTE,2,2110,20,0,606016512,241F1400,Uncompressed Video Essence over RTP
+SMPTE,2,2110,30,0,606019072,241F1E00,Uncompressed Audio Essence over RTP
+SMPTE,2,2110,31,0,606019328,241F1F00,Uncompressed Transparent AES3 over RTP
+SMPTE,2,2110,40,0,606021632,241F2800,ST291 Ancillary Data over RTP
+ISO/IEC,4,13818,1,0,1102041152,41AFD040,Payload is a transport stream without RTP or other wrapper
+ISO/IEC,4,13818,1,1,1102041153,41AFD041,Payload is a program stream without RTP or other wrapper
+ISO/IEC,4,23008,1,0,1120862272,42CF0040,MMT
+AES,5,67,,0,1342194432,50004300,AES 67 Audio
+ATSC,6,324,,0,1610695680,60014400,STLTP and DSTP
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
