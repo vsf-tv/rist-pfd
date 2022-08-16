@@ -17,7 +17,7 @@ The general format of the Payload Format Descriptor is shown below:
 The fields above are defined as follows:
 
 1. ID TYPE: 4 bits
-Senders shall set this field to identify a standards body category, and to define the format of the ID Number field.  The following ID Types are defined:
+Senders shall set this field to identify a standards body category, and to define the format of the ID VALUE field.  The following ID Types are defined:
     - 0:  VSF Category.
     - 1:  RFC Category.
     - 2:  SMPTE Category.
