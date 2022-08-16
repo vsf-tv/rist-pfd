@@ -1,7 +1,8 @@
 # VSF TR-06-03 Payload Format Descriptor Registration
 
 This is a registration repository for the Payload Format Descriptor
-field in the upcoming VSF TR-06-3 Specification.
+field in the 
+VSF TR-06-3 Specification.
 
 ## How to add new entries to the table
 
